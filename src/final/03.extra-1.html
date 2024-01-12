@@ -10,7 +10,8 @@
   <script type="text/babel">
     const children = 'Hello World'
     const className = 'container'
-    const element = <div className={className}>{children}</div>
+    const combine = `${children}===${className}`
+    const element = <div className={className}>{combine}</div>
     ReactDOM.createRoot(document.getElementById('root')).render(element)
   </script>
 </body>
