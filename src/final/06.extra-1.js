@@ -6,10 +6,12 @@ import * as React from 'react'
 
 function UsernameForm({onSubmitUsername}) {
   const usernameInputRef = React.useRef()
+  const pwdRef = React.useRef()
 
   function handleSubmit(event) {
     event.preventDefault()
-    onSubmitUsername(usernameInputRef.current.value)
+    onSubmitUsername(usernameInputRef.current.value,pwdRef.current.value)
+
   }
 
   return (
@@ -17,6 +19,9 @@ function UsernameForm({onSubmitUsername}) {
       <div>
         <label htmlFor="usernameInput">Username:</label>
         <input id="usernameInput" type="text" ref={usernameInputRef} />
+        <label>PASSWORD:</label>
+        <input id="pwd" type="text" ref={pwdRef} />
+
       </div>
       <button type="submit">Submit</button>
     </form>
@@ -24,7 +29,9 @@ function UsernameForm({onSubmitUsername}) {
 }
 
 function App() {
-  const onSubmitUsername = username => alert(`You entered: ${username}`)
+  const onSubmitUsername = (username,pwd) => {
+    alert(`You entered: ${username}===${pwd}`)
+  }
   return <UsernameForm onSubmitUsername={onSubmitUsername} />
 }
 
