@@ -9,7 +9,7 @@ function Box({style, className = '', ...otherProps}) {
   return (
     <div
       className={`box ${className}`}
-      style={{fontStyle: 'italic', ...style}}
+      style={{fontStyle: 'bold', ...style}}
       {...otherProps}
     />
   )
@@ -27,7 +27,7 @@ function App() {
       <Box className="box--large" style={{backgroundColor: 'orange'}}>
         large orange box
       </Box>
-      <Box>sizeless box</Box>
+      <Box style={{backgroundColor:"red"}}>sizeless box</Box>
     </div>
   )
 }
