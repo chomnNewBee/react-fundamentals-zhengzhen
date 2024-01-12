@@ -20,10 +20,10 @@
       },
     }
 
-    function Message({subject, greeting}) {
+    function Message({subject, greeting,newProp}) {
       return (
         <div className="message">
-          {greeting}, {subject}
+          {greeting}, {subject},{newProp}
         </div>
       )
     }
@@ -31,12 +31,17 @@
     Message.propTypes = {
       subject: PropTypes.string,
       greeting: PropTypes.string,
+      newProp(props,propname,componentNmae){
+        console.log(props)
+        console.log(propname)
+        console.log(componentNmae)
+      }
     }
 
     const element = (
       <div className="container">
         <Message subject="World" greeting="Hello" />
-        <Message subject="World" greeting="Goodbye" />
+        <Message subject="World" greeting="Goodbye" newProp="233"/>
       </div>
     )
 

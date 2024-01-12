@@ -10,8 +10,10 @@
   <script type="text/babel">
     // This is being used as a component 🎉
     function Message({children}) {
+      console.log(children)
       return <div className="message">{children}</div>
     }
+
 
     const element = (
       <div className="container">
