@@ -6,14 +6,18 @@ import * as React from 'react'
 
 function UsernameForm({onSubmitUsername}) {
   const [username, setUsername] = React.useState('')
+  const [nickName, SetNickName] = React.useState("")
 
   function handleSubmit(event) {
     event.preventDefault()
-    onSubmitUsername(username)
+    onSubmitUsername(username,nickName)
   }
 
   function handleChange(event) {
     setUsername(event.target.value.toLowerCase())
+  }
+  const handleNickNameFunc = (event) => {
+    SetNickName(event.target.value.toUpperCase())
   }
 
   return (
@@ -26,6 +30,13 @@ function UsernameForm({onSubmitUsername}) {
           onChange={handleChange}
           value={username}
         />
+        <label>NickName</label>
+        <input
+          id="NickName"
+          type="text"
+          onChange={handleNickNameFunc}
+          value={nickName}
+        />
       </div>
       <button type="submit">Submit</button>
     </form>
@@ -33,7 +44,7 @@ function UsernameForm({onSubmitUsername}) {
 }
 
 function App() {
-  const onSubmitUsername = username => alert(`You entered: ${username}`)
+  const onSubmitUsername = (username,nickname) => alert(`You entered: ${username}====${nickname}`)
   return (
     <div style={{minWidth: 400}}>
       <UsernameForm onSubmitUsername={onSubmitUsername} />
